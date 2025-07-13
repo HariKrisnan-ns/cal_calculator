@@ -7,7 +7,11 @@ import requests
 from dotenv import load_dotenv
 load_dotenv()
 
-api_key = os.getenv("OPENROUTER_API_KEY")
+# Try Streamlit secret first; fallback to .env for local
+api_key = st.secrets.get("OPENROUTER_API_KEY", os.getenv("OPENROUTER_API_KEY"))
+
+if not api_key:
+    st.error("API Key not found. Please add it to `.env` or Streamlit Secrets.")
 
 
 # BACKEND
