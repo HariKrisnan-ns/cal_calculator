@@ -13,8 +13,10 @@ api_key = st.secrets.get("OPENROUTER_API_KEY", os.getenv("OPENROUTER_API_KEY"))
 if not api_key:
     st.error("API Key not found. Please add it to `.env` or Streamlit Secrets.")
 
+st.write("API key loaded:", bool(api_key))
 
 # BACKEND
+
 
 def image_to_base64(image):  # fn to convert image to base64
     buffered = io.BytesIO()
