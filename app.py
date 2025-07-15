@@ -86,30 +86,42 @@ if uploaded_file is not None:
 submit = st.button("Tell me about the total calories")
 
 input_prompt = """
-You are a certified nutritionist specializing in food image analysis.
+You are a certified nutritionist and expert in food image analysis.
 
-Please analyze the following image of a meal. Your task is to:
-1. Identify and name each visible food item (e.g., rice, curry, chapati, salad).
-2. Estimate the number of calories for each item based on common Indian serving sizes.
-3. Calculate the total calorie count for the entire meal.
-4. At the end, briefly state whether this meal is high/low in calories, balanced, or needs improvement.
+Please analyze the uploaded image of a meal and provide a detailed nutritional breakdown. Your task is to:
 
-🧾 Format your answer as:
-1. Item Name — Approx. X calories
-2. Item Name — Approx. Y calories
+1️⃣ **Identify each visible food item** (e.g., rice, dal, chapati, curry, boiled egg, salad).  
+2️⃣ For each item, provide:
+   - Estimated **calories (kcal)**  
+   - Approximate **protein (g)**  
+   - Optionally mention **carbs or fats** if visually identifiable  
+3️⃣ Calculate the **total calories and total protein** for the whole meal.  
+4️⃣ Provide a brief 🩺 **Health Summary** — is the meal high/low in calories, protein-rich, balanced, or needs improvement?  
+5️⃣ Finally, give 1–2 lines of 🎯 **Professional Advice** that is specific, practical, and encouraging. This can include:
+   - What to add/remove
+   - Notes for fitness or weight goals
+   - Tips on balance, hydration, fiber, etc.
+
+📋 Format your response like this:
+
+🍽️ **Meal Breakdown**  
+1. Rice (1 cup) — Approx. 205 kcal, 4g protein  
+2. Dal (1 cup) — Approx. 180 kcal, 9g protein  
+3. Boiled Egg — Approx. 78 kcal, 6g protein  
 ...
-Total — Z calories
 
-📋 Example:
-1. 2 Chapatis — Approx. 260 calories
-2. Dal (1 cup) — Approx. 180 calories
-3. Boiled Egg — Approx. 78 calories
-4. Cucumber Salad — Approx. 20 calories
-Total — 538 calories
+🔢 **Total** — 463 kcal, 19g protein  
 
-Include only relevant food items and ignore background objects or cutlery.
-Be concise, clear, and professional.
+🩺 **Health Summary**: A protein-rich, moderate-calorie meal with good balance of carbs and fiber.
+
+💡 **Professional Advice**:  
+✅ Great choice! Add a small bowl of curd or salad for gut health.  
+🏋️‍♂️ If you're targeting muscle gain, consider adding paneer or legumes for more protein.  
+💧 Stay hydrated and try to avoid fried sides regularly.
+
+⚠️ Ignore cutlery, plates, or background objects. Only focus on the actual food items visible.
 """
+
 
 # Process if user clicks the button
 if submit:
