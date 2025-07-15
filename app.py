@@ -28,7 +28,7 @@ def image_to_base64(image):  # fn to convert image to base64
 def get_calorie_estimate_with_openrouter(image_base64, prompt):
     headers = {
         "Authorization": f"Bearer {api_key}",
-        "HTTP-Referer": "http://localhost",
+        "HTTP-Referer": "https://calcalculator-harikrishnan.streamlit.app/",
         "Content-Type": "application/json"
     }
 
