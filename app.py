@@ -17,6 +17,14 @@ if not api_key:
 # BACKEND
 
 
+def preprocess_image(image):
+    # Convert to RGB (avoid alpha channel issues)
+    image = image.convert("RGB")
+    # Resize to max 512x512 (you can tune this size)
+    image = image.resize((512, 512))
+    return image
+
+
 def image_to_base64(image):  # fn to convert image to base64
     buffered = io.BytesIO()
     image.save(buffered, format="PNG")
@@ -70,7 +78,9 @@ image = None
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
+    image = preprocess_image(image)
     st.image(image, caption="Uploaded Image", use_container_width=True)
+
 
 
 submit = st.button("Tell me about the total calories")
