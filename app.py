@@ -80,7 +80,7 @@ if uploaded_file is not None:
     try:
         original_image = Image.open(uploaded_file)
         image = preprocess_image(original_image)
-        st.image(original_image, caption="Uploaded Image", use_container_width=True)
+        st.image(original_image, caption="Uploaded Image", use_column_width=True)
     except Exception as e:
         st.error(f"Error displaying image: {e}")
 
